@@ -5,7 +5,6 @@ var bodyParser  = require("body-parser");
 var mongoose = require('mongoose');
 var methodOverride = require("method-override");
 var app = express();
-//var voiceFile = require('./polly-tts/tts');
 
 mongoose.connect('mongodb://localhost/smartHit', function(err, res) {  
   if(err) {
