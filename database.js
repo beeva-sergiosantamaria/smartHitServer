@@ -9,7 +9,7 @@ var app = express();
 var ServerPort = process.env.PORT || 3000;
 var socketPort = process.env.PORT || 3031;
 
-mongoose.connect('mongodb://localhost/smartHit', function(err, res) {  
+mongoose.connect('mongodb://52.31.73.229', function(err, res) {  
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
