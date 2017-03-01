@@ -17,6 +17,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
 app.use(bodyParser.urlencoded({ extended: false }));  
 app.use(bodyParser.json());  
 app.use(methodOverride());
@@ -34,14 +35,14 @@ faces.route('/faceCollection')
 app.use('/faces', faces);
  
 app.listen(3000, function() {
-	console.log("Node server running on http://localhost:3000");
+	console.log("Node server running");
 });
 
 var sockerServer = require('http').Server(app);
-var io = require('socket.io')(sockerServer);
+var io = require('socket.io')(sockerServer, { origins: '*:*'});
 
 sockerServer.listen(3031, function() {
-  console.log("websocket server running on http://localhost:3031");
+  console.log("websocket server running");
 });
 
 io.on('connection', function(socket){
