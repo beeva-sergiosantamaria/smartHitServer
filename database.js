@@ -60,16 +60,4 @@ io.on('connection', function(socket){
   })
 })
 
-var net = require('net-socket');
- 
-var socket = net.connect(7777, 'localhost');
- 
-socket.setEncoding('utf8');
-socket.on('connect', function () {
-    // connected 
-    
-    socket.end('hey');
-    socket.destroy();
-});
-
 
