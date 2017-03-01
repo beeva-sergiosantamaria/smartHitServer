@@ -6,6 +6,9 @@ var mongoose = require('mongoose');
 var methodOverride = require("method-override");
 var app = express();
 
+var ServerPort = process.env.PORT || 3000;
+var socketPort = process.env.PORT || 3031;
+
 mongoose.connect('mongodb://localhost/smartHit', function(err, res) {  
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
@@ -34,14 +37,14 @@ faces.route('/faceCollection')
 
 app.use('/faces', faces);
  
-app.listen(3000, function() {
+app.listen(ServerPort, function() {
 	console.log("Node server running");
 });
 
 var sockerServer = require('http').Server(app);
 var io = require('socket.io')(sockerServer, { origins: '*:*'});
 
-sockerServer.listen(3031, function() {
+sockerServer.listen(socketPort, function() {
   console.log("websocket server running");
 });
 
