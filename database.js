@@ -9,7 +9,7 @@ var app = express();
 var ServerPort = process.env.PORT || 3000;
 var socketPort = process.env.PORT || 3031;
 
-mongoose.connect('mongodb://localhost', function(err, res) {  
+mongoose.connect('mongodb://ec2-52-31-73-229.eu-west-1.compute.amazonaws.com', function(err, res) {  
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
