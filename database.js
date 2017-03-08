@@ -51,7 +51,7 @@ sockerServer.listen(socketPort, function() {
 io.on('connection', function(socket){
   console.log('alguien se ha conectado con socket.')
   socket.on('messagesReturn', function(data){
-    console.log(data);
+    console.log('mensaje recibido: ',data);
     socket.emit('messages', {
       origen: data.device,
       objeto: data.objeto
