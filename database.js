@@ -53,7 +53,7 @@ io.on('connection', function(socket){
   socket.on('messagesReturn', function(data){
     console.log('mensaje recibido: ',data);
     socket.emit('messages', {
-      origen: data.device,
+      origen: data.origen,
       objeto: data.objeto
     })
   })
