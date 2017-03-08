@@ -50,13 +50,12 @@ sockerServer.listen(socketPort, function() {
 
 io.on('connection', function(socket){
   console.log('alguien se ha conectado con socket.')
-  socket.emit('messages', {
-    id: 1,
-    text: "Hola soy un mensaje",
-    author: "Carlos Zaratustre"
-  })
   socket.on('messagesReturn', function(data){
     console.log(data);
+    socket.emit('messages', {
+      origen: data.device,
+      objeto: data.objeto
+    })
   })
 })
 
