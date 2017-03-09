@@ -5,6 +5,7 @@ var bodyParser  = require("body-parser");
 var mongoose = require('mongoose');
 var methodOverride = require("method-override");
 var app = express();
+var socketio;
 
 var ServerPort = process.env.PORT || 3000;
 var socketPort = process.env.PORT || 3031;
@@ -49,13 +50,11 @@ sockerServer.listen(socketPort, function() {
 });
 
 io.on('connection', function(socket){
+  socketio = socket;
   console.log('alguien se ha conectado con socket.')
-  socket.on('messagesReturn', function(data){
+  socketio.on('messagesReturn', function(data){
     console.log('mensaje recibido: ',data);
-    socket.emit('messages', {
-      origen: data.origen,
-      objeto: data.objeto
-    })
+    socketio.emit("messages", "mensaje curioso");
   })
 })
 
