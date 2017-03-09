@@ -51,11 +51,11 @@ sockerServer.listen(socketPort, function() {
 
 io.on('connection', function(socket){
   socketio = socket;
-  console.log('alguien se ha conectado con socket.')
+  console.log('alguien se ha conectado con socket.');
   socketio.on('messagesReturn', function(data){
     console.log('mensaje recibido: ',data);
-    socketio.emit("messages", "mensaje curioso");
-  })
-})
+    socketio.emit("toSmartMirror", "mensaje curioso");
+  });
+});
 
 
