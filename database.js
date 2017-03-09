@@ -52,10 +52,9 @@ sockerServer.listen(socketPort, function() {
 io.on('connection', function(socket){
   socketio = socket;
   console.log('alguien se ha conectado con socket.');
-  socketio.emit("toSmartMirror", "mensaje curioso desde fuera de on");
   socketio.on('messagesReturn', function(data){
     console.log('mensaje recibido: ',data);
-    io.emit("toSmartMirror", "mensaje curioso");
+    io.emit("toSmartMirror", data);
   });
 });
 
