@@ -43,7 +43,7 @@ app.listen(ServerPort, function() {
 });
 
 var sockerServer = require('http').Server(app);
-var io = require('socket.io')(sockerServer, { origins: '*:*'});
+var io = require('socket.io')(sockerServer, { origins: '*:*', forceNew: true });
 
 sockerServer.listen(socketPort, function() {
   console.log("websocket server running");
@@ -55,7 +55,7 @@ io.on('connection', function(socket){
   socketio.emit("toSmartMirror", "mensaje curioso desde fuera de on");
   socketio.on('messagesReturn', function(data){
     console.log('mensaje recibido: ',data);
-    socketio.emit("toSmartMirror", "mensaje curioso");
+    io.emit("toSmartMirror", "mensaje curioso");
   });
 });
 
