@@ -14,6 +14,7 @@ mongoose.connect('mongodb://localhost', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
+  console.log('respuesta mongo: ', res);
 });
 
 app.use(function(req, res, next) {
