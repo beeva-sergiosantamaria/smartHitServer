@@ -35,7 +35,7 @@ var faces = express.Router();
 faces.route('/faceCollection')
 	.get(faceCtrl.findAllFaces)
 	.post(faceCtrl.addFaces)
-  	.delete(faceCtrl.deleteFaces);
+  .delete(faceCtrl.deleteFaces);
 
 app.use('/faces', faces);
  
