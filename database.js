@@ -53,9 +53,14 @@ sockerServer.listen(socketPort, function() {
 io.on('connection', function(socket){
   socketio = socket;
   console.log('alguien se ha conectado con socket.');
-  socketio.on('messagesReturn', function(data){
+  socketio.on('zombis', function(data){
     console.log('mensaje recibido: ',data);
     io.emit("toSmartMirror", data);
+  });
+  socketio.on('armas', function(data){
+    console.log('mensaje recibido: ',data);
+    io.emit("toSmartMirror", data);
+    //io.emit("toDefenders", data);
   });
 });
 
