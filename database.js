@@ -61,6 +61,14 @@ io.on('connection', function(socket){
     console.log('mensaje recibido de explorers: ',data);
     io.emit("toDefenders", data);
   });
+  socketio.on('timeOut', function(data){
+    console.log('mensaje recibido de explorers: ',data);
+    io.emit("toExplorers", data);
+  });
+  socketio.on('requestWeapons', function(data){
+    console.log('mensaje recibido de explorers: ',data);
+    io.emit("toExplorers", data);
+  });
 });
 
 
