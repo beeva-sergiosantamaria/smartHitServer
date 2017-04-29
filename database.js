@@ -63,11 +63,11 @@ io.on('connection', function(socket){
   });
   socketio.on('timeOut', function(data){
     console.log('mensaje recibido de smartmirror por timeout: ',data);
-    io.emit("toExplorers", data);
+    io.emit("toExplorersTime", data);
   });
   socketio.on('requestWeapons', function(data){
     console.log('mensaje recibido de defender pidiendo armas: ',data);
-    io.emit("toExplorers", data);
+    io.emit("toExplorersWeapon", data);
   });
 });
 
