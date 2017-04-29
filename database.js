@@ -62,11 +62,11 @@ io.on('connection', function(socket){
     io.emit("toDefenders", data);
   });
   socketio.on('timeOut', function(data){
-    console.log('mensaje recibido de explorers: ',data);
+    console.log('mensaje recibido de defenders por timeout: ',data);
     io.emit("toExplorers", data);
   });
   socketio.on('requestWeapons', function(data){
-    console.log('mensaje recibido de explorers: ',data);
+    console.log('mensaje recibido de defender pidiendo armas: ',data);
     io.emit("toExplorers", data);
   });
 });
