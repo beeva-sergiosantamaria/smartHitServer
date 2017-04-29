@@ -62,7 +62,7 @@ io.on('connection', function(socket){
     io.emit("toDefenders", data);
   });
   socketio.on('timeOut', function(data){
-    console.log('mensaje recibido de defenders por timeout: ',data);
+    console.log('mensaje recibido de smartmirror por timeout: ',data);
     io.emit("toExplorers", data);
   });
   socketio.on('requestWeapons', function(data){
